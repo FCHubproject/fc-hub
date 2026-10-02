@@ -1,25 +1,111 @@
 <!DOCTYPE html>
-<html lang="fr"
-  <head>
-  <meta charset="utf"-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0>
-    <title>FC HUB</title>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FC HUB</title>
 
-    <style>
+  <style>
     body {
-    margin: 0;
-    font-family: arial, sans-serif;
-    background: #10131a;
-    color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #10131a;
+      color: white;
     }
 
-    header{
-    padding: 25px;
-    text-align: center;
-    background: #171b24;
+    header {
+      padding: 50px 20px;
+      text-align: center;
+      background: #171b24;
     }
 
     h1 {
-    margin: 0;
-    font-size: 42px;
-    } 
+      margin: 0;
+      font-size: 50px;
+    }
+
+    header p {
+      font-size: 20px;
+      color: #cccccc;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1b202b;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .card button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #10131a;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888888;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>FC HUB</h1>
+    <p>L'assistant pour les joueurs EA FC</p>
+  </header>
+
+  <div class="container">
+
+    <div class="cards">
+
+      <div class="card">
+        <h2>⚽ Career Manager</h2>
+        <p>Trouve des joueurs adaptés à ton budget et à ton équipe.</p>
+        <button>Découvrir</button>
+      </div>
+
+      <div class="card">
+        <h2>🏆 Ultimate Team</h2>
+        <p>Des outils pour améliorer ton équipe Ultimate Team.</p>
+        <button>Découvrir</button>
+      </div>
+
+      <div class="card">
+        <h2>👤 Player Career</h2>
+        <p>Des conseils pour progresser dans ta carrière joueur.</p>
+        <button>Découvrir</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    FC HUB — Projet en développement
+  </footer>
+
+</body>
+</html>
