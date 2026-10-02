@@ -3,37 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>FC HUB</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #10131a;
+      background: #0f172a;
       color: white;
     }
 
     header {
-      padding: 45px 20px;
       text-align: center;
-      background: #171b24;
+      padding: 35px 20px;
+      background: #111827;
     }
 
-    h1 {
+    header h1 {
       margin: 0;
-      font-size: 50px;
+      font-size: 42px;
     }
 
     header p {
-      color: #cccccc;
-      font-size: 18px;
+      color: #94a3b8;
+      margin-top: 10px;
     }
 
     .container {
       max-width: 1100px;
-      margin: auto;
-      padding: 35px 20px;
+      margin: 30px auto;
+      padding: 0 20px;
     }
 
     .cards {
@@ -43,104 +46,108 @@
     }
 
     .card {
-      background: #1b202b;
+      background: #1e293b;
       padding: 25px;
       border-radius: 15px;
-      text-align: center;
+      border: 1px solid #334155;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .card p {
+      color: #cbd5e1;
     }
 
     button {
-      padding: 12px 20px;
+      background: #22c55e;
       border: none;
+      color: white;
+      padding: 12px 18px;
       border-radius: 8px;
-      background: white;
-      color: #10131a;
-      font-weight: bold;
       cursor: pointer;
+      font-weight: bold;
     }
 
     button:hover {
-      transform: scale(1.03);
+      background: #16a34a;
     }
 
     #careerTool {
       display: none;
       margin-top: 30px;
-      background: #1b202b;
+      background: #1e293b;
       padding: 25px;
       border-radius: 15px;
+      border: 1px solid #334155;
     }
 
     .filters {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
-      margin-top: 20px;
+      margin: 20px 0;
     }
 
     label {
       display: block;
-      margin-bottom: 7px;
-      color: #cccccc;
+      margin-bottom: 6px;
+      color: #cbd5e1;
+      font-size: 14px;
     }
 
     input,
     select {
       width: 100%;
-      padding: 12px;
-      box-sizing: border-box;
+      padding: 11px;
       border-radius: 8px;
-      border: none;
-      background: #2a303c;
-      color: white;
-    }
-
-    #results {
-      margin-top: 25px;
-    }
-
-    .player {
-      background: #252b38;
-      padding: 18px;
-      margin-top: 12px;
-      border-radius: 10px;
-    }
-
-    .player h3 {
-      margin-top: 0;
-    }
-
-    .player-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 8px;
-    }
-
-    .stat {
-      background: #303746;
-      padding: 8px;
-      border-radius: 7px;
-    }
-
-    .back {
-      margin-top: 20px;
-      background: #555d6d;
+      border: 1px solid #475569;
+      background: #0f172a;
       color: white;
     }
 
     .status {
-      margin-top: 15px;
-      color: #cccccc;
+      margin: 15px 0;
+      color: #86efac;
     }
 
-    .error {
-      color: #ff8080;
+    .players {
+      display: grid;
+      gap: 10px;
+    }
+
+    .player {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .player-name {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .player-info {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .rating {
+      font-size: 22px;
+      font-weight: bold;
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      color: #888888;
+      color: #64748b;
     }
   </style>
 </head>
@@ -158,101 +165,91 @@
 
     <div class="card">
       <h2>⚽ Career Manager</h2>
-      <p>Trouve des joueurs adaptés à ton budget et à ton équipe.</p>
+      <p>
+        Trouve des joueurs adaptés à ton budget,
+        ton championnat et ton équipe.
+      </p>
       <button onclick="openCareer()">Découvrir</button>
     </div>
 
     <div class="card">
       <h2>🏆 Ultimate Team</h2>
-      <p>Des outils pour améliorer ton équipe Ultimate Team.</p>
-      <button>Découvrir</button>
+      <p>
+        Des outils pour améliorer ton équipe Ultimate Team.
+      </p>
+      <button onclick="alert('Ultimate Team arrive bientôt !')">
+        Découvrir
+      </button>
     </div>
 
     <div class="card">
       <h2>👤 Player Career</h2>
-      <p>Des conseils pour progresser dans ta carrière joueur.</p>
-      <button>Découvrir</button>
+      <p>
+        Des conseils pour progresser dans ta carrière joueur.
+      </p>
+      <button onclick="alert('Player Career arrive bientôt !')">
+        Découvrir
+      </button>
     </div>
 
   </div>
 
-
   <div id="careerTool">
 
-    <h2>⚽ Career Manager</h2>
+    <h2>⚽ Recherche Career Manager</h2>
 
-    <p>
-      Recherche parmi une grande base de joueurs FC 26.
-    </p>
-
-    <div id="loading" class="status">
-      ⏳ Chargement de la base de joueurs...
+    <div class="status" id="status">
+      Chargement des joueurs...
     </div>
-
 
     <div class="filters">
 
       <div>
-        <label>🔎 Nom du joueur</label>
+        <label>Nom du joueur</label>
         <input
           type="text"
-          id="playerName"
+          id="name"
           placeholder="Ex : Mbappé"
         >
       </div>
 
-
       <div>
-        <label>💰 Budget maximum (€)</label>
+        <label>Budget maximum (€)</label>
         <input
           type="number"
           id="budget"
-          placeholder="Ex : 10000000"
+          placeholder="Ex : 50000000"
         >
       </div>
 
-
       <div>
-        <label>🌍 Championnat</label>
-
+        <label>Championnat</label>
         <select id="league">
-          <option value="Tous">Tous</option>
+          <option value="">Tous les championnats</option>
         </select>
       </div>
 
-
       <div>
-        <label>⚽ Poste</label>
-
+        <label>Poste</label>
         <select id="position">
-          <option value="Tous">Tous</option>
-
-          <option value="ST">BU / ST</option>
-          <option value="CF">AT / CF</option>
-
-          <option value="LW">AG / LW</option>
-          <option value="RW">AD / RW</option>
-
-          <option value="CAM">MOC / CAM</option>
-          <option value="CM">MC / CM</option>
-          <option value="CDM">MDC / CDM</option>
-
-          <option value="LM">MG / LM</option>
-          <option value="RM">MD / RM</option>
-
-          <option value="LB">DG / LB</option>
-          <option value="RB">DD / RB</option>
-
-          <option value="CB">DC / CB</option>
-
-          <option value="GK">G</option>
+          <option value="">Tous les postes</option>
+          <option value="GK">Gardien</option>
+          <option value="CB">Défenseur central</option>
+          <option value="LB">Latéral gauche</option>
+          <option value="RB">Latéral droit</option>
+          <option value="CDM">MDC</option>
+          <option value="CM">MC</option>
+          <option value="CAM">MOC</option>
+          <option value="LM">MG</option>
+          <option value="RM">MD</option>
+          <option value="LW">AG</option>
+          <option value="RW">AD</option>
+          <option value="ST">BU</option>
         </select>
       </div>
 
-
       <div>
-        <label>🎂 Âge maximum</label>
-
+        <label>Âge maximum</label>
         <input
           type="number"
           id="age"
@@ -260,600 +257,364 @@
         >
       </div>
 
-
       <div>
-        <label>⭐ Note minimum</label>
-
+        <label>Note minimum</label>
         <input
           type="number"
           id="rating"
           placeholder="Ex : 75"
-          min="1"
-          max="99"
         >
       </div>
 
     </div>
 
-
-    <br>
-
     <button onclick="searchPlayers()">
       🔎 Rechercher
     </button>
 
-
-    <div id="results"></div>
-
-
-    <button class="back" onclick="closeCareer()">
-      ← Retour
-    </button>
+    <div id="results" class="players" style="margin-top:20px;">
+    </div>
 
   </div>
 
 </div>
-
 
 <footer>
   FC HUB — Projet en développement
 </footer>
 
 
+<!-- BASE DE DONNÉES FC 26 -->
+<script src="https://raw.githubusercontent.com/Wealthgatepilot/fc26-karriere/main/fcdata.js"></script>
+
+
 <script>
-
-/* =========================================
-   BASE DE DONNÉES FC 26
-   ========================================= */
-
-const DATA_URL =
-"https://raw.githubusercontent.com/ismailoksuz/EAFC26-DataHub/main/data/players.csv";
-
 
 let players = [];
 
 
-/* =========================================
-   OUVRIR / FERMER CAREER MANAGER
-   ========================================= */
+/* OUVERTURE DE CAREER MANAGER */
 
 function openCareer() {
 
-  document.getElementById("careerTool").style.display = "block";
+  const tool = document.getElementById("careerTool");
 
-  window.scrollTo(
-    0,
-    document.body.scrollHeight
-  );
+  tool.style.display = "block";
 
-  if (players.length === 0) {
-    loadPlayers();
-  }
+  tool.scrollIntoView({
+    behavior: "smooth"
+  });
+
+  loadPlayers();
+
 }
 
 
-function closeCareer() {
+/* CHARGEMENT DES JOUEURS */
 
-  document.getElementById("careerTool").style.display = "none";
-}
-
-
-/* =========================================
-   CALCUL DE L'ÂGE
-   ========================================= */
-
-function calculateAge(birthdate) {
-
-  if (!birthdate) {
-    return 0;
-  }
-
-  const birth = new Date(birthdate);
-
-  if (isNaN(birth)) {
-    return 0;
-  }
-
-  const today = new Date();
-
-  let age =
-    today.getFullYear() -
-    birth.getFullYear();
-
-  const month =
-    today.getMonth() -
-    birth.getMonth();
+function loadPlayers() {
 
   if (
-    month < 0 ||
-    (
-      month === 0 &&
-      today.getDate() < birth.getDate()
-    )
+    typeof FC_PLAYERS === "undefined" ||
+    typeof FC_CLUBS === "undefined" ||
+    typeof FC_LEAGUES === "undefined"
   ) {
-    age--;
-  }
 
-  return age;
-}
-
-
-/* =========================================
-   LECTURE DU CSV
-   ========================================= */
-
-function parseCSV(text) {
-
-  const rows = [];
-
-  let row = [];
-
-  let value = "";
-
-  let insideQuotes = false;
-
-
-  for (let i = 0; i < text.length; i++) {
-
-    const char = text[i];
-
-    const next = text[i + 1];
-
-
-    if (char === '"' && insideQuotes && next === '"') {
-
-      value += '"';
-
-      i++;
-
-    }
-
-    else if (char === '"') {
-
-      insideQuotes = !insideQuotes;
-
-    }
-
-    else if (char === "," && !insideQuotes) {
-
-      row.push(value);
-
-      value = "";
-
-    }
-
-    else if (
-      (char === "\n" || char === "\r") &&
-      !insideQuotes
-    ) {
-
-      if (value !== "" || row.length > 0) {
-
-        row.push(value);
-
-        rows.push(row);
-
-        row = [];
-
-        value = "";
-      }
-
-    }
-
-    else {
-
-      value += char;
-    }
-  }
-
-
-  if (value !== "" || row.length > 0) {
-
-    row.push(value);
-
-    rows.push(row);
-  }
-
-
-  return rows;
-}
-
-
-/* =========================================
-   CHARGER LES JOUEURS
-   ========================================= */
-
-async function loadPlayers() {
-
-  const loading =
-    document.getElementById("loading");
-
-
-  try {
-
-    const response =
-      await fetch(DATA_URL);
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        "Impossible de charger la base."
-      );
-    }
-
-
-    const text =
-      await response.text();
-
-
-    const rows =
-      parseCSV(text);
-
-
-    const headers =
-      rows[0];
-
-
-    const index = {};
-
-    headers.forEach(
-      (header, position) => {
-
-        index[header] = position;
-
-      }
-    );
-
-
-    players = rows
-      .slice(1)
-      .map(row => {
-
-        const firstName =
-          row[index.firstName] || "";
-
-        const lastName =
-          row[index.lastName] || "";
-
-        const commonName =
-          row[index.commonName] || "";
-
-
-        const name =
-          commonName ||
-          `${firstName} ${lastName}`.trim();
-
-
-        const birthdate =
-          row[index.birthdate] || "";
-
-
-        return {
-
-          name: name,
-
-          position:
-            row[index.position] || "",
-
-          age:
-            calculateAge(birthdate),
-
-          rating:
-            Number(
-              row[index.overallRating]
-            ) || 0,
-
-          club:
-            row[index.team] || "",
-
-          league:
-            row[index.leagueName] || "",
-
-          nationality:
-            row[index.nationality] || "",
-
-          pace:
-            Number(row[index.pac]) || 0,
-
-          shooting:
-            Number(row[index.sho]) || 0,
-
-          passing:
-            Number(row[index.pas]) || 0,
-
-          dribbling:
-            Number(row[index.dri]) || 0,
-
-          defending:
-            Number(row[index.def]) || 0,
-
-          physical:
-            Number(row[index.phy]) || 0
-
-        };
-
-      })
-
-      .filter(
-        player => player.name
-      );
-
-
-    /*
-      On garde environ 3000 joueurs
-      répartis dans toute la base.
-    */
-
-    if (players.length > 3000) {
-
-      const step =
-        players.length / 3000;
-
-      const selected = [];
-
-      for (
-        let i = 0;
-        i < 3000;
-        i++
-      ) {
-
-        selected.push(
-          players[
-            Math.floor(i * step)
-          ]
-        );
-      }
-
-      players = selected;
-    }
-
-
-    createLeagueList();
-
-
-    loading.innerHTML =
-      "✅ " +
-      players.length.toLocaleString("fr-FR") +
-      " joueurs chargés.";
-
-
-  } catch (error) {
-
-    console.error(error);
-
-    loading.innerHTML =
-      "❌ Impossible de charger la base de joueurs. " +
-      "Vérifie ta connexion internet.";
-
-    loading.classList.add("error");
-  }
-}
-
-
-/* =========================================
-   LISTE DES CHAMPIONNATS
-   ========================================= */
-
-function createLeagueList() {
-
-  const select =
-    document.getElementById("league");
-
-
-  const leagues =
-    [...new Set(
-      players
-        .map(player => player.league)
-        .filter(Boolean)
-    )]
-    .sort();
-
-
-  leagues.forEach(
-    league => {
-
-      const option =
-        document.createElement("option");
-
-      option.value = league;
-
-      option.textContent = league;
-
-      select.appendChild(option);
-    }
-  );
-}
-
-
-/* =========================================
-   RECHERCHE
-   ========================================= */
-
-function searchPlayers() {
-
-  const name =
-    document
-      .getElementById("playerName")
-      .value
-      .toLowerCase()
-      .trim();
-
-
-  const budget =
-    Number(
-      document
-        .getElementById("budget")
-        .value
-    ) || Infinity;
-
-
-  const league =
-    document
-      .getElementById("league")
-      .value;
-
-
-  const position =
-    document
-      .getElementById("position")
-      .value;
-
-
-  const age =
-    Number(
-      document
-        .getElementById("age")
-        .value
-    ) || Infinity;
-
-
-  const rating =
-    Number(
-      document
-        .getElementById("rating")
-        .value
-    ) || 0;
-
-
-  const results =
-    players.filter(player => {
-
-      const nameOK =
-        !name ||
-        player.name
-          .toLowerCase()
-          .includes(name);
-
-
-      const leagueOK =
-        league === "Tous" ||
-        player.league === league;
-
-
-      const positionOK =
-        position === "Tous" ||
-        player.position === position;
-
-
-      const ageOK =
-        player.age <= age;
-
-
-      const ratingOK =
-        player.rating >= rating;
-
-
-      /*
-        La base utilisée ici ne fournit pas
-        directement la valeur marchande dans
-        le fichier chargé par le site.
-        Le budget sera donc ajouté dans
-        une prochaine version avec une base
-        contenant les valeurs.
-      */
-
-      const budgetOK =
-        budget === Infinity ||
-        true;
-
-
-      return (
-        nameOK &&
-        leagueOK &&
-        positionOK &&
-        ageOK &&
-        ratingOK &&
-        budgetOK
-      );
-
-    });
-
-
-  displayResults(
-    results.slice(0, 50)
-  );
-}
-
-
-/* =========================================
-   AFFICHER LES RÉSULTATS
-   ========================================= */
-
-function displayResults(results) {
-
-  const resultsDiv =
-    document.getElementById("results");
-
-
-  if (results.length === 0) {
-
-    resultsDiv.innerHTML =
-      "<p>Aucun joueur ne correspond à tes critères.</p>";
+    document.getElementById("status").textContent =
+      "❌ Impossible de charger la base de joueurs.";
 
     return;
   }
 
 
-  resultsDiv.innerHTML = `
+  players = FC_PLAYERS.map(function(p) {
 
-    <p>
-      🔎 ${results.length}
-      résultat(s) affiché(s)
-      ${results.length === 50 ? "(maximum 50)" : ""}
-    </p>
+    const name = p[0];
+    const fullName = p[1];
 
-    ${
-      results
-        .map(player => `
+    const positions = p[2] || [];
 
-          <div class="player">
+    const rating = p[3];
+    const potential = p[4];
+    const age = p[5];
 
-            <h3>
-              ⚽ ${player.name}
-            </h3>
+    const club = FC_CLUBS[p[6]] || "Club inconnu";
 
-            <div class="player-grid">
+    const leagueData = FC_LEAGUES[p[7]];
 
-              <div class="stat">
-                ⭐ Note :
-                <strong>${player.rating}</strong>
-              </div>
+    const league = leagueData
+      ? leagueData[0]
+      : "Championnat inconnu";
 
-              <div class="stat">
-                ⚽ Poste :
-                <strong>${player.position}</strong>
-              </div>
+    const country = leagueData
+      ? leagueData[2]
+      : "";
 
-              <div class="stat">
-                🎂 Âge :
-                <strong>${player.age}</strong>
-              </div>
+    const value = p[9] || 0;
+    const salary = p[10] || 0;
 
-              <div class="stat">
-                🏟️ Club :
-                <strong>${player.club}</strong>
-              </div>
+    return {
+      name: name,
+      fullName: fullName,
+      positions: positions,
+      rating: rating,
+      potential: potential,
+      age: age,
+      club: club,
+      league: league,
+      country: country,
+      value: value,
+      salary: salary
+    };
 
-              <div class="stat">
-                🌍
-                ${player.league}
-              </div>
+  });
 
-              <div class="stat">
-                🌎
-                ${player.nationality}
-              </div>
 
-            </div>
+  document.getElementById("status").textContent =
+    "✅ " + players.length.toLocaleString("fr-FR") +
+    " joueurs chargés.";
 
-          </div>
 
-        `)
-        .join("")
-    }
+  createLeagueList();
 
-  `;
+}
+
+
+/* LISTE DES CHAMPIONNATS */
+
+function createLeagueList() {
+
+  const select = document.getElementById("league");
+
+  const leagues = [...new Set(
+    players.map(player => player.league)
+  )].sort();
+
+
+  leagues.forEach(function(league) {
+
+    const option = document.createElement("option");
+
+    option.value = league;
+    option.textContent = league;
+
+    select.appendChild(option);
+
+  });
+
+}
+
+
+/* RECHERCHE */
+
+function searchPlayers() {
+
+  const name =
+    document.getElementById("name").value
+      .toLowerCase()
+      .trim();
+
+  const budget =
+    Number(document.getElementById("budget").value) || Infinity;
+
+  const league =
+    document.getElementById("league").value;
+
+  const position =
+    document.getElementById("position").value;
+
+  const maxAge =
+    Number(document.getElementById("age").value) || Infinity;
+
+  const minRating =
+    Number(document.getElementById("rating").value) || 0;
+
+
+  const results = players.filter(function(player) {
+
+    const nameOK =
+      !name ||
+      player.name.toLowerCase().includes(name) ||
+      player.fullName.toLowerCase().includes(name);
+
+
+    const budgetOK =
+      player.value <= budget;
+
+
+    const leagueOK =
+      !league ||
+      player.league === league;
+
+
+    const positionOK =
+      !position ||
+      player.positions.some(function(pos) {
+
+        return positionNumberToName(pos) === position;
+
+      });
+
+
+    const ageOK =
+      player.age <= maxAge;
+
+
+    const ratingOK =
+      player.rating >= minRating;
+
+
+    return (
+      nameOK &&
+      budgetOK &&
+      leagueOK &&
+      positionOK &&
+      ageOK &&
+      ratingOK
+    );
+
+  });
+
+
+  displayPlayers(results);
+
+}
+
+
+/* CONVERSION DES POSTES */
+
+function positionNumberToName(number) {
+
+  const positions = {
+
+    0: "GK",
+    1: "CB",
+    2: "LB",
+    3: "RB",
+    4: "CDM",
+    5: "CM",
+    6: "CAM",
+    7: "LM",
+    8: "RM",
+    9: "LW",
+    10: "RW",
+    11: "ST"
+
+  };
+
+  return positions[number];
+
+}
+
+
+/* AFFICHAGE DES JOUEURS */
+
+function displayPlayers(results) {
+
+  const container =
+    document.getElementById("results");
+
+
+  if (results.length === 0) {
+
+    container.innerHTML =
+      "<p>Aucun joueur ne correspond à tes critères.</p>";
+
+    return;
+
+  }
+
+
+  /* Maximum 50 résultats affichés */
+
+  const limitedResults =
+    results.slice(0, 50);
+
+
+  container.innerHTML =
+    "<p>" +
+    results.length.toLocaleString("fr-FR") +
+    " joueur(s) trouvé(s)</p>";
+
+
+  limitedResults.forEach(function(player) {
+
+    const div =
+      document.createElement("div");
+
+    div.className = "player";
+
+
+    const positions =
+      player.positions
+        .map(positionNumberToName)
+        .join(" / ");
+
+
+    div.innerHTML = `
+
+      <div>
+
+        <div class="player-name">
+          ${player.name}
+        </div>
+
+        <div class="player-info">
+          ${player.club}
+          • ${player.league}
+          • ${player.age} ans
+          • ${positions}
+        </div>
+
+        <div class="player-info">
+          Potentiel : ${player.potential}
+          • Valeur : ${formatMoney(player.value)}
+        </div>
+
+      </div>
+
+      <div class="rating">
+        ${player.rating}
+      </div>
+
+    `;
+
+
+    container.appendChild(div);
+
+  });
+
+}
+
+
+/* FORMATAGE DU PRIX */
+
+function formatMoney(value) {
+
+  if (value >= 1000000) {
+
+    return (
+      (value / 1000000)
+        .toFixed(1)
+        .replace(".0", "") +
+      " M€"
+    );
+
+  }
+
+
+  if (value >= 1000) {
+
+    return (
+      Math.round(value / 1000) +
+      " k€"
+    );
+
+  }
+
+
+  return value + " €";
+
 }
 
 </script>
