@@ -14,7 +14,7 @@
     }
 
     header {
-      padding: 50px 20px;
+      padding: 45px 20px;
       text-align: center;
       background: #171b24;
     }
@@ -25,14 +25,14 @@
     }
 
     header p {
-      font-size: 20px;
       color: #cccccc;
+      font-size: 18px;
     }
 
     .container {
       max-width: 1000px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 35px 20px;
     }
 
     .cards {
@@ -43,23 +43,75 @@
 
     .card {
       background: #1b202b;
-      padding: 30px;
+      padding: 25px;
       border-radius: 15px;
       text-align: center;
     }
 
-    .card h2 {
-      margin-top: 0;
-    }
-
-    .card button {
+    button {
       padding: 12px 20px;
       border: none;
       border-radius: 8px;
-      background: #ffffff;
+      background: white;
       color: #10131a;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    button:hover {
+      transform: scale(1.03);
+    }
+
+    #careerTool {
+      display: none;
+      margin-top: 30px;
+      background: #1b202b;
+      padding: 25px;
+      border-radius: 15px;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #cccccc;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      border: none;
+      background: #2a303c;
+      color: white;
+    }
+
+    #results {
+      margin-top: 25px;
+    }
+
+    .player {
+      background: #252b38;
+      padding: 18px;
+      margin-top: 12px;
+      border-radius: 10px;
+    }
+
+    .player h3 {
+      margin-top: 0;
+    }
+
+    .back {
+      margin-top: 20px;
+      background: #555d6d;
+      color: white;
     }
 
     footer {
@@ -72,40 +124,186 @@
 
 <body>
 
-  <header>
-    <h1>FC HUB</h1>
-    <p>L'assistant pour les joueurs EA FC</p>
-  </header>
+<header>
+  <h1>FC HUB</h1>
+  <p>L'assistant pour les joueurs EA FC</p>
+</header>
 
-  <div class="container">
+<div class="container">
 
-    <div class="cards">
+  <div class="cards">
 
-      <div class="card">
-        <h2>⚽ Career Manager</h2>
-        <p>Trouve des joueurs adaptés à ton budget et à ton équipe.</p>
-        <button>Découvrir</button>
-      </div>
+    <div class="card">
+      <h2>⚽ Career Manager</h2>
+      <p>Trouve des joueurs adaptés à ton budget et à ton équipe.</p>
+      <button onclick="openCareer()">Découvrir</button>
+    </div>
 
-      <div class="card">
-        <h2>🏆 Ultimate Team</h2>
-        <p>Des outils pour améliorer ton équipe Ultimate Team.</p>
-        <button>Découvrir</button>
-      </div>
+    <div class="card">
+      <h2>🏆 Ultimate Team</h2>
+      <p>Des outils pour améliorer ton équipe Ultimate Team.</p>
+      <button>Découvrir</button>
+    </div>
 
-      <div class="card">
-        <h2>👤 Player Career</h2>
-        <p>Des conseils pour progresser dans ta carrière joueur.</p>
-        <button>Découvrir</button>
-      </div>
-
+    <div class="card">
+      <h2>👤 Player Career</h2>
+      <p>Des conseils pour progresser dans ta carrière joueur.</p>
+      <button>Découvrir</button>
     </div>
 
   </div>
 
-  <footer>
-    FC HUB — Projet en développement
-  </footer>
+  <div id="careerTool">
+
+    <h2>⚽ Career Manager</h2>
+    <p>Choisis tes critères pour trouver des joueurs.</p>
+
+    <div class="filters">
+
+      <div>
+        <label>💰 Budget maximum (€)</label>
+        <input type="number" id="budget" placeholder="Ex : 10000000">
+      </div>
+
+      <div>
+        <label>🌍 Championnat</label>
+        <select id="league">
+          <option value="Tous">Tous</option>
+          <option value="Premier League">Premier League</option>
+          <option value="Liga">Liga</option>
+          <option value="Ligue 1">Ligue 1</option>
+          <option value="Bundesliga">Bundesliga</option>
+          <option value="Serie A">Serie A</option>
+        </select>
+      </div>
+
+      <div>
+        <label>⚽ Poste</label>
+        <select id="position">
+          <option value="Tous">Tous</option>
+          <option value="BU">BU</option>
+          <option value="AD">AD</option>
+          <option value="AG">AG</option>
+          <option value="MOC">MOC</option>
+          <option value="MC">MC</option>
+          <option value="DC">DC</option>
+          <option value="DG">DG</option>
+          <option value="DD">DD</option>
+          <option value="G">G</option>
+        </select>
+      </div>
+
+      <div>
+        <label>🎂 Âge maximum</label>
+        <input type="number" id="age" placeholder="Ex : 23">
+      </div>
+
+    </div>
+
+    <br>
+
+    <button onclick="searchPlayers()">🔎 Rechercher</button>
+
+    <div id="results"></div>
+
+    <button class="back" onclick="closeCareer()">← Retour</button>
+
+  </div>
+
+</div>
+
+<footer>
+  FC HUB — Projet en développement
+</footer>
+
+<script>
+
+const players = [
+  {
+    name: "Joueur exemple 1",
+    position: "BU",
+    age: 20,
+    price: 5000000,
+    league: "Ligue 1",
+    rating: 76
+  },
+  {
+    name: "Joueur exemple 2",
+    position: "MC",
+    age: 21,
+    price: 8000000,
+    league: "Bundesliga",
+    rating: 78
+  },
+  {
+    name: "Joueur exemple 3",
+    position: "DC",
+    age: 22,
+    price: 10000000,
+    league: "Premier League",
+    rating: 80
+  },
+  {
+    name: "Joueur exemple 4",
+    position: "AD",
+    age: 19,
+    price: 3500000,
+    league: "Liga",
+    rating: 75
+  },
+  {
+    name: "Joueur exemple 5",
+    position: "G",
+    age: 23,
+    price: 6000000,
+    league: "Serie A",
+    rating: 77
+  }
+];
+
+function openCareer() {
+  document.getElementById("careerTool").style.display = "block";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+function closeCareer() {
+  document.getElementById("careerTool").style.display = "none";
+}
+
+function searchPlayers() {
+
+  const budget = Number(document.getElementById("budget").value) || Infinity;
+  const league = document.getElementById("league").value;
+  const position = document.getElementById("position").value;
+  const age = Number(document.getElementById("age").value) || Infinity;
+
+  const results = players.filter(player =>
+    player.price <= budget &&
+    (league === "Tous" || player.league === league) &&
+    (position === "Tous" || player.position === position) &&
+    player.age <= age
+  );
+
+  const resultsDiv = document.getElementById("results");
+
+  if (results.length === 0) {
+    resultsDiv.innerHTML = "<p>Aucun joueur ne correspond à tes critères.</p>";
+    return;
+  }
+
+  resultsDiv.innerHTML = results.map(player => `
+    <div class="player">
+      <h3>⚽ ${player.name}</h3>
+      <p>Poste : ${player.position}</p>
+      <p>Âge : ${player.age} ans</p>
+      <p>Note : ${player.rating}</p>
+      <p>Prix estimé : ${player.price.toLocaleString("fr-FR")} €</p>
+      <p>Championnat : ${player.league}</p>
+    </div>
+  `).join("");
+}
+
+</script>
 
 </body>
 </html>
