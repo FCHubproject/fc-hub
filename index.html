@@ -1,134 +1,146 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FC HUB</title>
 
-  <title>FC HUB</title>
+<style>
+* {
+  box-sizing: border-box;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-    }
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: #111827;
+}
 
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background: #111827;
-    }
+header h1 {
+  margin: 0;
+  font-size: 42px;
+}
 
-    header h1 {
-      font-size: 42px;
-      margin: 0;
-    }
+header p {
+  color: #94a3b8;
+}
 
-    header p {
-      color: #94a3b8;
-    }
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+.card {
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #334155;
+}
 
-    .card {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 15px;
-      padding: 25px;
-    }
+.card h2 {
+  margin-top: 0;
+}
 
-    .card h2 {
-      margin-top: 0;
-    }
+.card p {
+  color: #cbd5e1;
+}
 
-    .card p {
-      color: #cbd5e1;
-    }
+button {
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    button {
-      border: none;
-      border-radius: 8px;
-      padding: 12px 18px;
-      background: #22c55e;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
+button:hover {
+  background: #16a34a;
+}
 
-    button:hover {
-      background: #16a34a;
-    }
+#careerTool {
+  display: none;
+  margin-top: 30px;
+  padding: 25px;
+  background: #1e293b;
+  border-radius: 15px;
+  border: 1px solid #334155;
+}
 
-    #careerTool {
-      display: none;
-      margin-top: 30px;
-      padding: 25px;
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 15px;
-    }
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
 
-    .filters {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin: 20px 0;
-    }
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #cbd5e1;
+}
 
-    label {
-      display: block;
-      margin-bottom: 6px;
-      color: #cbd5e1;
-    }
+input,
+select {
+  width: 100%;
+  padding: 11px;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: white;
+}
 
-    input,
-    select {
-      width: 100%;
-      padding: 11px;
-      border-radius: 8px;
-      border: 1px solid #475569;
-      background: #0f172a;
-      color: white;
-    }
+.status {
+  margin: 15px 0;
+  color: #86efac;
+}
 
-    .status {
-      margin: 15px 0;
-      color: #86efac;
-    }
+.player {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 10px;
+}
 
-    .players {
-      margin-top: 20px;
-    }
+.player-name {
+  font-size: 19px;
+  font-weight: bold;
+}
 
-    .player {
-      background: #0f172a;
-      border: 1px solid #334155;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 10px;
-    }
+.player-info {
+  color: #94a3b8;
+  margin-top: 5px;
+  font-size: 14px;
+}
 
-    footer {
-      text-align: center;
-      padding: 35px;
-      color: #64748b;
-    }
-  </style>
+.rating {
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 35px;
+  color: #64748b;
+}
+</style>
 </head>
 
 <body>
@@ -187,7 +199,7 @@
     <h2>⚽ Career Manager</h2>
 
     <div id="status" class="status">
-      Chargement de la base de joueurs...
+      Chargement de la base...
     </div>
 
     <div class="filters">
@@ -196,9 +208,74 @@
         <label>Nom du joueur</label>
 
         <input
-          id="playerSearch"
+          id="name"
           type="text"
           placeholder="Ex : Mbappé"
+        >
+      </div>
+
+      <div>
+        <label>Budget maximum (€)</label>
+
+        <input
+          id="budget"
+          type="number"
+          placeholder="Ex : 50000000"
+        >
+      </div>
+
+      <div>
+        <label>Championnat</label>
+
+        <select id="league">
+          <option value="">
+            Tous les championnats
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label>Poste</label>
+
+        <select id="position">
+
+          <option value="">
+            Tous les postes
+          </option>
+
+          <option value="GK">Gardien</option>
+          <option value="CB">Défenseur central</option>
+          <option value="LB">Latéral gauche</option>
+          <option value="RB">Latéral droit</option>
+          <option value="CDM">MDC</option>
+          <option value="CM">MC</option>
+          <option value="CAM">MOC</option>
+          <option value="LM">MG</option>
+          <option value="RM">MD</option>
+          <option value="LW">AG</option>
+          <option value="RW">AD</option>
+          <option value="ST">BU</option>
+
+        </select>
+      </div>
+
+      <div>
+        <label>Âge maximum</label>
+
+        <input
+          id="age"
+          type="number"
+          placeholder="Ex : 23"
+        >
+      </div>
+
+      <div>
+        <label>Note minimum</label>
+
+        <input
+          id="rating"
+          type="number"
+          placeholder="Ex : 75"
         >
       </div>
 
@@ -208,20 +285,396 @@
       🔎 Rechercher
     </button>
 
-    <div id="results" class="players"></div>
+    <div id="results"></div>
 
   </div>
 
 </div>
-
 
 <footer>
   FC HUB — Projet en développement
 </footer>
 
 
-<!-- Notre programme -->
-<script src="./app.js"></script>
+<!-- BASE DE JOUEURS -->
+<script src="./fcdata.js"></script>
+
+
+<script>
+
+let players = [];
+
+
+/* OUVRIR CAREER MANAGER */
+
+function openCareer() {
+
+  const tool =
+    document.getElementById("careerTool");
+
+  tool.style.display = "block";
+
+  tool.scrollIntoView({
+    behavior: "smooth"
+  });
+
+  loadPlayers();
+}
+
+
+/* CHARGER LES 18 405 JOUEURS */
+
+function loadPlayers() {
+
+  const status =
+    document.getElementById("status");
+
+
+  if (
+    typeof FC_PLAYERS === "undefined"
+  ) {
+
+    status.style.color = "#f87171";
+
+    status.textContent =
+      "❌ La base fcdata.js ne se charge pas.";
+
+    return;
+  }
+
+
+  players = FC_PLAYERS.map(function(p) {
+
+    const name = p[0] || "Joueur";
+
+    const fullName = p[1] || name;
+
+    const positions = Array.isArray(p[2])
+      ? p[2]
+      : [];
+
+    const rating = Number(p[3]) || 0;
+
+    const potential = Number(p[4]) || rating;
+
+    const age = Number(p[5]) || 0;
+
+    const clubID = Number(p[6]) || 0;
+
+    const leagueID = Number(p[7]) || 0;
+
+    const nationID = Number(p[8]) || 0;
+
+    const value = Number(p[9]) || 0;
+
+    const salary = Number(p[10]) || 0;
+
+
+    const club =
+      FC_CLUBS[clubID] ||
+      "Club inconnu";
+
+
+    const league =
+      FC_LEAGUES[leagueID]
+        ? FC_LEAGUES[leagueID][0]
+        : "Championnat inconnu";
+
+
+    const nation =
+      FC_NATIONS[nationID] ||
+      "";
+
+
+    return {
+      name,
+      fullName,
+      positions,
+      rating,
+      potential,
+      age,
+      club,
+      league,
+      nation,
+      value,
+      salary
+    };
+
+  });
+
+
+  status.style.color = "#86efac";
+
+  status.textContent =
+    "✅ " +
+    players.length.toLocaleString("fr-FR") +
+    " joueurs chargés.";
+
+
+  createLeagues();
+}
+
+
+/* CRÉER LA LISTE DES CHAMPIONNATS */
+
+function createLeagues() {
+
+  const select =
+    document.getElementById("league");
+
+
+  const leagues = [
+    ...new Set(
+      players.map(player => player.league)
+    )
+  ].sort();
+
+
+  leagues.forEach(function(league) {
+
+    if (!league) return;
+
+
+    const option =
+      document.createElement("option");
+
+    option.value = league;
+
+    option.textContent = league;
+
+    select.appendChild(option);
+
+  });
+
+}
+
+
+/* RECHERCHE */
+
+function searchPlayers() {
+
+  const name =
+    document
+      .getElementById("name")
+      .value
+      .toLowerCase()
+      .trim();
+
+
+  const budget =
+    Number(
+      document.getElementById("budget").value
+    ) || Infinity;
+
+
+  const league =
+    document.getElementById("league").value;
+
+
+  const position =
+    document.getElementById("position").value;
+
+
+  const maxAge =
+    Number(
+      document.getElementById("age").value
+    ) || Infinity;
+
+
+  const minRating =
+    Number(
+      document.getElementById("rating").value
+    ) || 0;
+
+
+  const positionNumber = {
+    GK: 0,
+    CB: 1,
+    LB: 2,
+    RB: 3,
+    CDM: 4,
+    CM: 5,
+    CAM: 6,
+    LM: 7,
+    RM: 8,
+    LW: 9,
+    RW: 10,
+    ST: 11
+  };
+
+
+  const results =
+    players.filter(function(player) {
+
+
+      const nameOK =
+        !name ||
+        player.name
+          .toLowerCase()
+          .includes(name) ||
+        player.fullName
+          .toLowerCase()
+          .includes(name);
+
+
+      const budgetOK =
+        player.value <= budget;
+
+
+      const leagueOK =
+        !league ||
+        player.league === league;
+
+
+      const positionOK =
+        !position ||
+        player.positions.includes(
+          positionNumber[position]
+        );
+
+
+      const ageOK =
+        player.age <= maxAge;
+
+
+      const ratingOK =
+        player.rating >= minRating;
+
+
+      return (
+        nameOK &&
+        budgetOK &&
+        leagueOK &&
+        positionOK &&
+        ageOK &&
+        ratingOK
+      );
+
+    });
+
+
+  displayPlayers(results);
+
+}
+
+
+/* AFFICHAGE */
+
+function displayPlayers(results) {
+
+  const container =
+    document.getElementById("results");
+
+
+  container.innerHTML = "";
+
+
+  if (results.length === 0) {
+
+    container.innerHTML =
+      "<p>Aucun joueur ne correspond à tes critères.</p>";
+
+    return;
+  }
+
+
+  const title =
+    document.createElement("p");
+
+  title.textContent =
+    results.length.toLocaleString("fr-FR") +
+    " joueur(s) trouvé(s)";
+
+
+  container.appendChild(title);
+
+
+  results.slice(0, 50).forEach(function(player) {
+
+    const div =
+      document.createElement("div");
+
+    div.className = "player";
+
+
+    const positions =
+      player.positions
+        .map(function(pos) {
+
+          return FC_POS[pos] || "";
+
+        })
+        .filter(Boolean)
+        .join(" / ");
+
+
+    div.innerHTML = `
+
+      <div class="rating">
+        ${player.rating}
+      </div>
+
+      <div class="player-name">
+        ${player.name}
+      </div>
+
+      <div class="player-info">
+        ${player.fullName}
+      </div>
+
+      <div class="player-info">
+        ${player.club}
+        • ${player.league}
+        • ${player.age} ans
+        • ${positions}
+      </div>
+
+      <div class="player-info">
+        Potentiel : ${player.potential}
+        • Valeur : ${formatMoney(player.value)}
+      </div>
+
+    `;
+
+
+    container.appendChild(div);
+
+  });
+
+}
+
+
+/* FORMAT PRIX */
+
+function formatMoney(value) {
+
+  if (value >= 1000000) {
+
+    return (
+      (value / 1000000)
+        .toFixed(1)
+        .replace(".0", "") +
+      " M€"
+    );
+
+  }
+
+
+  if (value >= 1000) {
+
+    return (
+      Math.round(value / 1000) +
+      " k€"
+    );
+
+  }
+
+
+  return value + " €";
+
+}
+
+</script>
 
 </body>
 </html>
